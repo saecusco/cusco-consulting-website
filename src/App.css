@@ -1,54 +1,422 @@
-.App {
-  text-align: center;
+/* ========================================
+   CCG - Cusco Consulting Group
+   Dark Minimal Theme
+======================================== */
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-elevated: #111111;
+  --color-text: #f5f5f5;
+  --color-text-muted: #888888;
+  --color-accent: #c9a227;
+  --color-accent-dim: rgba(201, 162, 39, 0.3);
+  --color-border: #222222;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #003f8c;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   Navigation
+======================================== */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  z-index: 100;
+  background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+/* ========================================
+   Hero Section
+======================================== */
+
+.hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.fa-brands {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  margin: 10px;
+  align-items: center;
   text-align: center;
-  text-decoration: none;
+  position: relative;
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
-.fa-brands:hover {
-  opacity: 0.7;
+.hero-content {
+  max-width: 800px;
 }
 
-/* Twitter */
-.fa-x-twitter {
-  background: #55acee;
-  color: white;
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 15vw, 10rem);
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  margin-right: -0.4em;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: var(--spacing-md);
 }
 
-/* Linkedin */
-.fa-linkedin {
-  background: #55acee;
-  color: white;
+.hero-line {
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 0 auto var(--spacing-md);
 }
 
-/* Reddit */
-.fa-reddit {
-  background: #55acee;
-  color: white;
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-lg);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ========================================
+   Section Titles
+======================================== */
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ========================================
+   Philosophy Section
+======================================== */
+
+.philosophy {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg-elevated);
+}
+
+.philosophy-content {
+  max-width: 700px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.philosophy-lead {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.philosophy-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Domains */
+.domains {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.domain {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.domain-marker {
+  width: 8px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.domain-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+/* ========================================
+   Contact Section
+======================================== */
+
+.contact {
+  padding: var(--spacing-xl) 0;
+}
+
+.contact-form {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+.form-group textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.submit-btn:hover {
+  color: var(--color-accent);
+}
+
+.btn-line {
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.submit-btn:hover .btn-line {
+  width: 60px;
+}
+
+/* Form Success */
+.form-success {
+  text-align: left;
+}
+
+.form-success p {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-success .success-sub {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Footer
+======================================== */
+
+.footer {
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .hero-title {
+    letter-spacing: 0.25em;
+    margin-right: -0.25em;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+  }
+
+  .philosophy-lead {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   Subtle Animations
+======================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.philosophy-content,
+.domains,
+.contact-form {
+  animation: fadeIn 0.8s ease-out;
 }

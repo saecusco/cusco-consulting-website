@@ -16,7 +16,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Replace YOUR_FORM_ID with your Formspree form ID
-    const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    const response = await fetch("https://formspree.io/f/meeeopod", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
